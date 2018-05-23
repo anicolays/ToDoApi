@@ -43,24 +43,26 @@ namespace TodoApi
                     Contact = new Contact { Name = "Mykola Antoniuk", Email = "mykolantoniuk@gmail.com", Url = "https://anicolays.com" },
                     License = new License { Name = "Use under LICX", Url = "https://example.com/license" }
                 });
-            
-            // Set the comments path for the Swagger JSON and UI
-           // var basePath = AppContext.BaseDirectory;
-           // IFileProvider provider; provider.GetDirectoryContents
-            //var xmlPath = Path.Combine(basePath, "TodoApi.xml");
-            // if (!System.IO.File.Exists(xmlPath))
-            // {
-            //     System.IO.File.Create(xmlPath, 0, System.IO.FileOptions.WriteThrough);
-            // } 
-          //  c.IncludeXmlComments(@"C:\Users\Mykola\Desktop\TodoApi\bin\Debug\netcoreapp2.0\TodoApi.xml");
-            });
 
-            
+                // Set the comments path for the Swagger JSON and UI
+                 var basePath = AppContext.BaseDirectory;
+                // IFileProvider provider; provider.GetDirectoryContents
+                var xmlPath = Path.Combine(basePath, "TodoApi.xml");
+                c.IncludeXmlComments(xmlPath);
+                // if (!System.IO.File.Exists(xmlPath))
+                // {
+                //     System.IO.File.Create(xmlPath, 0, System.IO.FileOptions.WriteThrough);
+                // } 
+                //  c.IncludeXmlComments(@"C:\Users\Mykola\Desktop\TodoApi\bin\Debug\netcoreapp2.0\TodoApi.xml");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
@@ -70,6 +72,7 @@ namespace TodoApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
 
             app.UseMvc();
         }

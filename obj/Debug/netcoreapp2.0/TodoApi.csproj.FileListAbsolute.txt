@@ -9,3 +9,4 @@ C:\Users\Mykola\Desktop\TodoApi\obj\Debug\netcoreapp2.0\TodoApi.AssemblyInfoInpu
 C:\Users\Mykola\Desktop\TodoApi\obj\Debug\netcoreapp2.0\TodoApi.AssemblyInfo.cs
 C:\Users\Mykola\Desktop\TodoApi\obj\Debug\netcoreapp2.0\TodoApi.dll
 C:\Users\Mykola\Desktop\TodoApi\obj\Debug\netcoreapp2.0\TodoApi.pdb
+C:\Users\Mykola\Desktop\TodoApi\bin\Debug\netcoreapp2.0\TodoApi.xml

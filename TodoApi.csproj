@@ -18,8 +18,11 @@
   </ItemGroup>
 
 <!-- snippet_SupressWarnings -->
-<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+<!-- <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 <DocumentotionFile>bin\Debug\netcoreapp2.0\TodoApi.xml</DocumentotionFile>
+</PropertyGroup> -->
+<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <DocumentationFile>bin\Debug\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
 </PropertyGroup>
 
 
