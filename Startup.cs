@@ -16,6 +16,7 @@ using System.IO;
 
 namespace TodoApi
 {
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -57,7 +58,12 @@ namespace TodoApi
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app">IApplicationBuilder</param>
+        /// <param name="env">IHostingEnvironment</param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
 

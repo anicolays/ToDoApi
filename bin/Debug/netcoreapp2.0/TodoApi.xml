@@ -4,10 +4,34 @@
         <name>TodoApi</name>
     </assembly>
     <members>
+        <member name="M:TodoApi.Controllers.TodoController.Create(TodoApi.Models.TodoItem)">
+            <summary>
+            Creates a TodoItem
+            </summary>
+            <param name="item"></param>
+            <remarks>
+            Sample request:
+            
+            POST /Todod
+            {
+            "id": 1,
+            "name": "Item1",
+            "isComplete": true 
+            }
+            </remarks>
+            <returns>A newly created TodoItem</returns>
+        </member>
         <member name="M:TodoApi.Controllers.TodoController.Delete(System.Int64)">
              <summary>
              Deletes a specific ToDoItem
             </summary>
+        </member>
+        <member name="M:TodoApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">IApplicationBuilder</param>
+            <param name="env">IHostingEnvironment</param>
         </member>
     </members>
 </doc>

@@ -2,9 +2,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using TodoApi.Models;
+using System.ComponentModel;
 
 namespace TodoApi.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     public class TodoController : Controller
     {
@@ -31,7 +33,7 @@ namespace TodoApi.Controllers
         public IActionResult GetById(long id)
         {
             var item = _context.TodoItems.FirstOrDefault(t => t.Id == id);
-           
+
             if (item == null)
             {
                 return NotFound();
@@ -39,7 +41,24 @@ namespace TodoApi.Controllers
             return new ObjectResult(item);
         }
 
+        /// <summary>
+        /// Creates a TodoItem
+        /// </summary>
+        /// <param name="item"></param>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        /// POST /Todod
+        /// {
+        /// "id": 1,
+        /// "name": "Item1",
+        /// "isComplete": true 
+        /// }
+        /// </remarks>
+        /// <returns>A newly created TodoItem</returns>
         [HttpPost]
+        [ProducesResponseType(typeof(TodoItem), 201)]
+        [ProducesResponseType(400)]
         public IActionResult Create([FromBody] TodoItem item)
         {
             if (item == null)
@@ -78,7 +97,6 @@ namespace TodoApi.Controllers
         /// <summary>
         /// Deletes a specific ToDoItem
         ///</summary>
-
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
